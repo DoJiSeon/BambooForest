@@ -17,4 +17,5 @@ public class wall : MonoBehaviour
         transform.position = pos;
 
     }
+
 }

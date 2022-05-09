@@ -9,11 +9,11 @@ public class arrow : MonoBehaviour
 
     void Start()
     {
-        arrowRigidbody = GetComponent<Rigidbody2D>();
+        //arrowRigidbody = GetComponent<Rigidbody2D>();
 
-        arrowRigidbody.velocity = transform.forward * speed;
+        //arrowRigidbody.velocity = transform.forward * speed;
 
-        Destroy(gameObject, 3f);
+        //Destroy(gameObject, 3f);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -25,6 +25,7 @@ public class arrow : MonoBehaviour
             if(playerController != null)
             {
                 playerController.Die();
+                Debug.Log("ав╬З╫ю╢о╢ы.");
             }
         }
     }
