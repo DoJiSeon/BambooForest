@@ -21,11 +21,9 @@ public class arrow : MonoBehaviour
         if(collision.tag == "Player")
         {
             PlayerController playerController = collision.GetComponent<PlayerController>();
-
-            if(playerController != null)
+            if (playerController != null)
             {
                 playerController.Die();
-                Debug.Log("ав╬З╫ю╢о╢ы.");
             }
         }
     }
