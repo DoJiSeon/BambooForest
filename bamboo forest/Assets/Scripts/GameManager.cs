@@ -17,22 +17,15 @@ public class GameManager : MonoBehaviour
           return _instance;
         }
     }
-    public GameObject GameOver;
     public float LastScore;
     public float BestScore;
-    public Text BestScoreText;
-    public Text LastScoreText;
+    public float times;
     public bool isDie = false;
 
-    public string timeScore;
-    public float times;
     private void Awake()
     {
         BestScore = PlayerPrefs.GetFloat("BestScore", 0);
         LastScore = PlayerPrefs.GetFloat("LastScore", 0);
-
-        BestScoreText.text = BestScore.ToString();
-        LastScoreText.text = LastScore.ToString();
 
     }
     void Update()
@@ -46,40 +39,33 @@ public class GameManager : MonoBehaviour
             {
                 LastScore = times;
                 BestScore = times;
-                BestScoreText.text = BestScore.ToString();
-                LastScoreText.text = LastScore.ToString();
 
                 PlayerPrefs.SetFloat("BestScore", times);
                 PlayerPrefs.SetFloat("LastScore", times);
             }
-            else if (times > BestScore)
+            else if (times > BestScore || times == BestScore)
             {
                 LastScore = times;
                 BestScore = times;
-                BestScoreText.text = BestScore.ToString();
-                LastScoreText.text = LastScore.ToString();
-
                 PlayerPrefs.SetFloat("BestScore", times);
                 PlayerPrefs.SetFloat("LastScore", times);
             }
             else
             {
                 LastScore = times;
-                LastScoreText.text = LastScore.ToString();
                 PlayerPrefs.SetFloat("LastScore", times);
             }
         }
     }
 
-    public void Gameover()
+    public void GameoverCheck(bool check)
     {
-        GameOver.SetActive(true);
-        isDie = true;
+        isDie = check;
     }
 
     public void Timer()
     {
         // UI_time 에서 변수 값 받아오기
-        times = UI_time.memotime;
+        times = UI_time.memotime; // float 값 받아옴
     }
 }

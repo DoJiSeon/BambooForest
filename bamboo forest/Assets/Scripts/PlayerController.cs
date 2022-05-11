@@ -36,6 +36,6 @@ public class PlayerController : MonoBehaviour
     
     public void Die()
     {
-        GameManager.instance.Gameover();
+        GameManager.instance.GameoverCheck(true);
     }
 }
