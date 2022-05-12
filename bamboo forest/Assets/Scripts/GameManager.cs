@@ -5,18 +5,13 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    private static GameManager _instance;
-    public static GameManager instance
+
+    static GameManager _instance = null;
+    public static GameManager instance()
     {
-        get
-        {
-            if(_instance == null)
-            {
-                _instance = FindObjectOfType<GameManager>();
-            }
-          return _instance;
-        }
+        return _instance;
     }
+    
     public float LastScore;
     public float BestScore;
     public float times;
@@ -24,9 +19,22 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        if(_instance == null)
+        {
+            _instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+        else
+        {
+            if (this != _instance)
+            {
+                Destroy(this.gameObject);
+            }
+        }
+
         BestScore = PlayerPrefs.GetFloat("BestScore", 0);
         LastScore = PlayerPrefs.GetFloat("LastScore", 0);
-
+        isDie = false;
     }
     void Update()
     {
@@ -35,6 +43,8 @@ public class GameManager : MonoBehaviour
             Timer();
         }
         else{
+            LastScore = PlayerPrefs.GetFloat("LastScore",0);
+            BestScore = PlayerPrefs.GetFloat("BestScore", 0);
             if (LastScore == 0)
             {
                 LastScore = times;

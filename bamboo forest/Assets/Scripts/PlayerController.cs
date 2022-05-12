@@ -10,12 +10,6 @@ public class PlayerController : MonoBehaviour
     [Header("이동속도 조절")]
     [SerializeField] [Range(1f, 30f)] float moveSpeed = 20f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -33,9 +27,10 @@ public class PlayerController : MonoBehaviour
             
         }
     }
-    
-    public void Die()
+
+    public static void Die()
     {
-        GameManager.instance.GameoverCheck(true);
+        GameManager.instance().GameoverCheck(true);
+        Debug.Log("죽었습니다");
     }
 }
