@@ -34,12 +34,6 @@ public class ArrowSpawner : MonoBehaviour
         {
             timeAfterSpawn = 0f;
 
-            //gameobject arrow = instantiate(arrowprefeb, transform.position, transform.rotation);
-
-            //arrow.transform.lookat(target);
-
-            //spawnrate = 0.5f;
-
             Fire();
         }
 
@@ -47,7 +41,9 @@ public class ArrowSpawner : MonoBehaviour
 
     public void Fire()
     {
-        GameObject bullet = Instantiate(bulletObjA, transform.position, transform.rotation);
+        Vector3 dir = targetObj.transform.position - transform.position;
+        Quaternion rot = Quaternion.LookRotation(dir.normalized);
+        GameObject bullet = Instantiate(bulletObjA, transform.position, rot);
         Rigidbody2D rigid = bullet.GetComponent<Rigidbody2D>();
         Vector3 dirVec = targetObj.transform.position - transform.position;
         rigid.AddForce(dirVec * speed, ForceMode2D.Impulse);
