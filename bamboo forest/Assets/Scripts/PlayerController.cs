@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     {
         if (CompareTag("wall"))
         {
-            
+            Debug.Log("´ê¾Ò½À´Ï´Ù.");
         }
     }
 
