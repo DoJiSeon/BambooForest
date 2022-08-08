@@ -46,7 +46,7 @@ public class ArrowSpawner : MonoBehaviour
         Quaternion rot = Quaternion.LookRotation(dir.normalized); // 쿼터니언 값으로 방향 변경해서 방향 설정
         rot.y = 0;
         GameObject bullet = Instantiate(bulletObjA, transform.position, rot); // 화살표 방향 설정 후 복제
-
+        
         Rigidbody2D rigid = bullet.GetComponent<Rigidbody2D>();
         Vector3 dirVec = targetObj.transform.position - transform.position;
         rigid.AddForce(dirVec * 1.3f, ForceMode2D.Impulse);
