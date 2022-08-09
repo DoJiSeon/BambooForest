@@ -12,13 +12,16 @@ public class LeftArrowSpawner: MonoBehaviour
     int random_fire;
     public GameObject bulletObjA; // È­»ì ÇÁ¸®ÆÕ
     public float speed;
-
+    SpriteRenderer sprite;
     void Start()
     {
         timeAfterSpawn = 0f;
         speed = 1.2f;
         random_fire = 1;
-        spawnRate = 3;
+        spawnRate = 10;
+
+        sprite = GetComponent<SpriteRenderer>();
+        sprite.color = new Color(1, 1, 1, 0f);
     }
 
 

@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
     }
     void Update()
     {
-        if (!isDie)
+        if (!isDie )
         {
             Timer();
         }

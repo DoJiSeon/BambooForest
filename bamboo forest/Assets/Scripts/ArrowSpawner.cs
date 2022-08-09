@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ArrowSpawner : MonoBehaviour
 {
@@ -17,12 +18,17 @@ public class ArrowSpawner : MonoBehaviour
     public GameObject bulletObjA;
     public float speed;
 
+    SpriteRenderer sprite;
+
+
     void Start()
     {
         timeAfterSpawn = 0f;
         spawnRate = 2f;
         target = FindObjectOfType<PlayerController>().transform;
         speed = 1.2f;
+        sprite = GetComponent<SpriteRenderer>();
+        sprite.color = new Color(1, 1, 1, 0f);
     }
 
     void Update()
@@ -32,7 +38,7 @@ public class ArrowSpawner : MonoBehaviour
         if (timeAfterSpawn >= spawnRate)
         {
             timeAfterSpawn = 0f;
-            spawnRate = Random.Range(1.4f, 1.8f);
+            spawnRate = Random.Range(1.7f, 2.5f);
             Fire();
         }
     }
