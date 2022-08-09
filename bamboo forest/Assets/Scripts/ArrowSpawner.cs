@@ -22,7 +22,7 @@ public class ArrowSpawner : MonoBehaviour
         timeAfterSpawn = 0f;
         spawnRate = 2f;
         target = FindObjectOfType<PlayerController>().transform;
-        speed = 1.5f;
+        speed = 1.2f;
     }
 
     void Update()
@@ -32,7 +32,7 @@ public class ArrowSpawner : MonoBehaviour
         if (timeAfterSpawn >= spawnRate)
         {
             timeAfterSpawn = 0f;
-
+            spawnRate = Random.Range(1.4f, 1.8f);
             Fire();
         }
     }
@@ -49,7 +49,7 @@ public class ArrowSpawner : MonoBehaviour
         
         Rigidbody2D rigid = bullet.GetComponent<Rigidbody2D>();
         Vector3 dirVec = targetObj.transform.position - transform.position;
-        rigid.AddForce(dirVec * 1.3f, ForceMode2D.Impulse);
-        Destroy(bullet, 2f);
+        rigid.AddForce(dirVec * (speed*20), ForceMode2D.Force);
+        Destroy(bullet, 5f);
     }
 }

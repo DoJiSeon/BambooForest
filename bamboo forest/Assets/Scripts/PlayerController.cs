@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     float moveX, moveY;
 
     [Header("이동속도 조절")]
-    [SerializeField] [Range(1f, 30f)] float moveSpeed = 20f;
+    [SerializeField] [Range(1f, 80f)] float moveSpeed = 80f;
 
     // Update is called once per frame
     void Update()
