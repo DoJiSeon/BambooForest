@@ -774,7 +774,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 002978393a37c034b8c146142c40f240, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2206,7 +2206,7 @@ MonoBehaviour:
   attackAudioSourceEfects: []
   attackPlaySoundName: []
   bgmPlayer: {fileID: 0}
-  mainBgmAudioClip: {fileID: 8300000, guid: 49c74d258582d4a42a16234c4fc04465, type: 3}
+  mainBgmAudioClip: {fileID: 8300000, guid: 325dbc0da4f141b4fa7d2d5decaf7ae0, type: 3}
   TitleBgmAudioClip: {fileID: 8300000, guid: 9ea7ddd0a4103ed4cab8f7229b4e686b, type: 3}
 --- !u!4 &894392010
 Transform:

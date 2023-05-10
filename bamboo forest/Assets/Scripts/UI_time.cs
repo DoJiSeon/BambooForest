@@ -107,4 +107,9 @@ public class UI_time : MonoBehaviour
         SceneManager.LoadScene(1);
         isGameOverOpened = false;
     }
+
+    public void quitGame()
+    {
+        Application.Quit();
+    }
 }
