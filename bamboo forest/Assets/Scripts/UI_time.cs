@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 public class UI_time : MonoBehaviour
 {
     public Text timeText;
@@ -12,9 +13,11 @@ public class UI_time : MonoBehaviour
 
     public float LastScore;
     public float BestScore;
-    public Text BestScoreText;
-    public Text LastScoreText;
+    public TMP_Text BestScoreText;
+    public TMP_Text LastScoreText;
     public GameObject GameOver;
+
+    public TMP_Text tmp;
 
     public bool isGameOverOpened;
 
@@ -28,7 +31,7 @@ public class UI_time : MonoBehaviour
 
         BestScoreText.text = BestScore.ToString();
         LastScoreText.text = LastScore.ToString();
-
+        
         isGameOverOpened = false;
     }
 
@@ -55,7 +58,8 @@ public class UI_time : MonoBehaviour
     public  void Timer()
     {
         time += Time.deltaTime;
-        timeText.text = string.Format("{0:N2}", time);
+        //timeText.text = string.Format("{0:N2}", time);
+        tmp.text = string.Format("{0:N2}", time);
         memotimes = string.Format("{0:N2}", time);
         memotime = float.Parse(memotimes); // string to float
     }
